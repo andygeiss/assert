@@ -2,7 +2,6 @@ package assert
 
 import (
 	"fmt"
-	"github.com/andygeiss/log"
 	"testing"
 )
 
@@ -10,6 +9,6 @@ import (
 func That(t *testing.T, state interface{}, m Matcher) {
 	if !m.Matches(state) {
 		msg := fmt.Sprintf("[%v] does not match!", state)
-		log.Error(msg)
+		t.Error(msg)
 	}
 }
