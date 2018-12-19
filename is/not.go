@@ -1,7 +1,6 @@
 package is
 
 import (
-	"fmt"
 	"github.com/andygeiss/assert"
 	"reflect"
 )
@@ -12,12 +11,7 @@ type notEqualMatcher struct {
 
 // Matches ...
 func (m *notEqualMatcher) Matches(val interface{}) bool {
-	return reflect.DeepEqual(m.val, val)
-}
-
-// String ...
-func (m *notEqualMatcher) String() string {
-	return fmt.Sprintf("[%s] is equal", m.val)
+	return !reflect.DeepEqual(m.val, val)
 }
 
 // NotEqual ...
