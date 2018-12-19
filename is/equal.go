@@ -15,6 +15,11 @@ func (m *equalMatcher) Matches(val interface{}) bool {
 	return reflect.DeepEqual(m.val, val)
 }
 
+// Value ...
+func (m *equalMatcher) Value() interface{} {
+	return m.val
+}
+
 // Equal initializes the Equal-Matcher.
 func Equal(val interface{}) assert.Matcher {
 	return &equalMatcher{val: val}
