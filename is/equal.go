@@ -15,6 +15,11 @@ func (m *equalMatcher) Matches(val interface{}) bool {
 	return reflect.DeepEqual(m.val, val)
 }
 
+// Name returns the unique name of the matcher.
+func (m *equalMatcher) Name() string {
+	return "equalMatcher"
+}
+
 // Value ...
 func (m *equalMatcher) Value() interface{} {
 	return m.val
